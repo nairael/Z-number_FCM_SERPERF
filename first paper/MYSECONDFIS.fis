@@ -1,0 +1,49 @@
+[System]
+Name='MYSECONDFIS'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='sorat'
+Range=[0 30]
+NumMFs=3
+MF1='LS':'trapmf',[-Inf 2 5 8]
+MF2='MS':'trapmf',[7 10 12 15]
+MF3='HS':'trapmf',[13 18 21 Inf]
+
+[Input2]
+Name='fasele'
+Range=[0 1]
+NumMFs=3
+MF1='S':'trapmf',[-0.45 -0.05 0.05 0.45]
+MF2='M':'trapmf',[0.05 0.45 0.55 0.95]
+MF3='L':'trapmf',[0.55 0.95 1.05 1.45]
+
+[Output1]
+Name='shetab'
+Range=[-25 25]
+NumMFs=5
+MF1='NB':'trapmf',[-36.25 -26.25 -23.75 -13.75]
+MF2='N':'trapmf',[-23.75 -13.75 -11.25 -1.25]
+MF3='ZR':'trimf',[-12.5 0 12.5]
+MF4='P':'trapmf',[1.25 11.25 13.75 23.75]
+MF5='PB':'trapmf',[13.75 23.75 26.25 36.25]
+
+[Rules]
+1 1, 3 (1) : 1
+1 2, 4 (1) : 1
+1 3, 5 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 4 (1) : 1
+3 1, 1 (1) : 1
+3 2, 2 (1) : 1
+3 3, 3 (1) : 1

@@ -1,0 +1,56 @@
+[System]
+Name='MYFIRSTFIS'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=2
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 1]
+NumMFs=7
+MF1='VL':'trimf',[0 0 0.1]
+MF2='L':'trimf',[0 0.1 0.3]
+MF3='ML':'trimf',[0.1 0.3 0.5]
+MF4='M':'trimf',[0.3 0.5 0.7]
+MF5='MH':'trimf',[0.5 0.7 0.9]
+MF6='H':'trimf',[0.7 0.9 1]
+MF7='VH':'trimf',[0.9 1 1]
+
+[Input2]
+Name='input2'
+Range=[-1 1]
+NumMFs=9
+MF1='NVS':'trimf',[-1 -1 -0.75]
+MF2='NS':'trimf',[-1 -0.75 -0.5]
+MF3='NM':'trimf',[-0.75 -0.5 -0.25]
+MF4='NW':'trimf',[-0.5 -0.25 0]
+MF5='ZR':'trimf',[-0.25 0 0.25]
+MF6='PW':'trimf',[0 0.25 0.5]
+MF7='PM':'trimf',[0.25 0.5 0.75]
+MF8='PS':'trimf',[0.5 0.75 1]
+MF9='PVS':'trimf',[0.75 1 1]
+
+[Output1]
+Name='output1'
+Range=[-1 1]
+NumMFs=9
+MF1='PM':'trimf',[0.25 0.5 0.75]
+MF2='NS':'trimf',[-1 -0.75 -0.5]
+MF3='NM':'trimf',[-0.75 -0.5 -0.25]
+MF4='NW':'trimf',[-0.5 -0.25 0]
+MF5='ZR':'trimf',[-0.25 0 0.25]
+MF6='PW':'trimf',[0 0.25 0.5]
+MF7='PS':'trimf',[0.5 0.75 1]
+MF8='PVS':'trimf',[0.75 1 1]
+MF9='NWS':'trimf',[-1 -1 -0.75]
+
+[Rules]
+1 1, 1 (1) : 1
+2 2, 2 (1) : 1
